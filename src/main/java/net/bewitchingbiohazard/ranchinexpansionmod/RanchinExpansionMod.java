@@ -1,6 +1,7 @@
 package net.bewitchingbiohazard.ranchinexpansionmod;
 
 import com.mojang.logging.LogUtils;
+import net.bewitchingbiohazard.ranchinexpansionmod.entity.ModEntities;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -26,6 +27,7 @@ public class RanchinExpansionMod
     {
         IEventBus modEventBus = context.getModEventBus();
 
+        ModEntities.register(modEventBus);
         modEventBus.addListener(this::commonSetup);
 
         MinecraftForge.EVENT_BUS.register(this);
