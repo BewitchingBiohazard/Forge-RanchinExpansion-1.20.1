@@ -2,6 +2,9 @@ package net.bewitchingbiohazard.ranchinexpansionmod;
 
 import com.mojang.logging.LogUtils;
 import net.bewitchingbiohazard.ranchinexpansionmod.entity.ModEntities;
+import net.bewitchingbiohazard.ranchinexpansionmod.entity.client.AngusRenderer_F;
+import net.minecraft.client.renderer.entity.EntityRenderer;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -57,6 +60,7 @@ public class RanchinExpansionMod
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
+            EntityRenderers.register(ModEntities.ANGUS_F.get(), AngusRenderer_F::new);
         }
     }
 }

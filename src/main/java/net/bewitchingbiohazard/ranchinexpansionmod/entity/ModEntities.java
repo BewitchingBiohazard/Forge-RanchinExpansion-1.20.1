@@ -14,8 +14,8 @@ public class ModEntities {
             DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, RanchinExpansionMod.MOD_ID);
 
     public static final RegistryObject<EntityType<AngusEntity_F>> ANGUS_F =
-            ENTITY_TYPES.register("angus female", () -> EntityType.Builder.of(AngusEntity_F::new, MobCategory.CREATURE)
-                    .sized(0.9f, 1.4f).build("angus female"));
+            ENTITY_TYPES.register("angusfemale", () -> EntityType.Builder.of(AngusEntity_F::new, MobCategory.CREATURE)
+                    .sized(0.9f, 1.4f).build("angusfemale"));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
