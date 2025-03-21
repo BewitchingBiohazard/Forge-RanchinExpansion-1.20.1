@@ -15,7 +15,7 @@ public class ModEntities {
 
     public static final RegistryObject<EntityType<AngusEntity_F>> ANGUS_F =
             ENTITY_TYPES.register("angusfemale", () -> EntityType.Builder.of(AngusEntity_F::new, MobCategory.CREATURE)
-                    .sized(0.9f, 1.4f).build("angusfemale"));
+                    .sized(2f, 2f).build("angusfemale"));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);

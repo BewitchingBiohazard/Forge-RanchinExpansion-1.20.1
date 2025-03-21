@@ -2,7 +2,11 @@ package net.bewitchingbiohazard.ranchinexpansionmod.entity.custom;
 
 
 import net.bewitchingbiohazard.ranchinexpansionmod.entity.ModEntities;
+import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -15,6 +19,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 
 public class AngusEntity_F extends Animal {
@@ -51,5 +56,25 @@ public class AngusEntity_F extends Animal {
     @Override
     public boolean isFood(ItemStack pStack) {
         return pStack.is(Items.WHEAT);
+    }
+
+    @Override
+    protected @Nullable SoundEvent getAmbientSound() {
+        return SoundEvents.COW_AMBIENT;
+    }
+
+    @Override
+    protected @Nullable SoundEvent getHurtSound(DamageSource pDamageSource) {
+        return SoundEvents.COW_HURT;
+    }
+
+    @Override
+    protected @Nullable SoundEvent getDeathSound() {
+        return SoundEvents.COW_DEATH;
+    }
+
+    @Override
+    protected void playStepSound(BlockPos pPos, BlockState pState) {
+        this.playSound(SoundEvents.COW_STEP, 0.15F, 1.0F);
     }
 }

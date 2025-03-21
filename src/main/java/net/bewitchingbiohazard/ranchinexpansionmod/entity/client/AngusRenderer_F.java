@@ -12,7 +12,7 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class AngusRenderer_F extends MobRenderer<AngusEntity_F, AngusModelF<AngusEntity_F>> {
     public AngusRenderer_F(EntityRendererProvider.Context pContext) {
-        super(pContext, new AngusModelF<>(pContext.bakeLayer(ModModelLayers.ANGUS_LAYER)), 2f);
+        super(pContext, new AngusModelF<>(pContext.bakeLayer(ModModelLayers.ANGUS_LAYER)), .5f);
     }
 
     @Override
@@ -25,6 +25,7 @@ public class AngusRenderer_F extends MobRenderer<AngusEntity_F, AngusModelF<Angu
     @Override
     public void render(AngusEntity_F pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack,
                        MultiBufferSource pBuffer, int pPackedLight) {
+        pMatrixStack.scale(2.25f, 2.25f, 2.25f);
         if (pEntity.isBaby()) {
             pMatrixStack.scale(0.5f, 0.5f, 0.5f);
         }
