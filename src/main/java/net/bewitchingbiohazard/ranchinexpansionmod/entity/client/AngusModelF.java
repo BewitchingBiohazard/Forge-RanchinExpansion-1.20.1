@@ -5,12 +5,14 @@ package net.bewitchingbiohazard.ranchinexpansionmod.entity.client;// Made with B
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.bewitchingbiohazard.ranchinexpansionmod.entity.animations.ModAnimationsDefinitions;
+import net.bewitchingbiohazard.ranchinexpansionmod.entity.custom.AngusEntity_F;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.HierarchicalModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
-import net.minecraft.sounds.SoundEvent;
+import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 
 public class AngusModelF<T extends Entity> extends HierarchicalModel<T> {
@@ -117,7 +119,20 @@ public class AngusModelF<T extends Entity> extends HierarchicalModel<T> {
 
 	@Override
 	public void setupAnim(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		this.root().getAllParts().forEach(ModelPart::resetPose);
+		this.applyHeadRotation(netHeadYaw, headPitch, ageInTicks);
 
+		this.animateWalk(ModAnimationsDefinitions.WALKING_ANIMATION, limbSwing, limbSwingAmount, 25f, 2.5f);
+		//Other animations here
+	}
+
+	private void applyHeadRotation(float pNetHeadYaw, float pHeadPitch, float pAgeInTicks)
+	{
+		pNetHeadYaw = Mth.clamp(pNetHeadYaw, -30.0F, 30.0F);
+		pHeadPitch = Mth.clamp(pHeadPitch, -25.0F, 45.0F);
+
+		this.Head.yRot = pNetHeadYaw * ((float)Math.PI / 180F);
+		this.Head.zRot = pHeadPitch * ((float)Math.PI / 180F);
 	}
 
 	@Override
