@@ -1,9 +1,9 @@
 package net.bewitchingbiohazard.ranchinexpansionmod;
 
-import com.mojang.logging.LogUtils;
 import net.bewitchingbiohazard.ranchinexpansionmod.entity.ModEntities;
 import net.bewitchingbiohazard.ranchinexpansionmod.entity.client.AngusRenderer_F;
-import net.minecraft.client.renderer.entity.EntityRenderer;
+import net.bewitchingbiohazard.ranchinexpansionmod.item.ModCreativeModTabs;
+import net.bewitchingbiohazard.ranchinexpansionmod.item.ModItems;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -15,7 +15,8 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import org.slf4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(RanchinExpansionMod.MOD_ID)
@@ -24,11 +25,16 @@ public class RanchinExpansionMod
     // Define mod id in a common place for everything to reference
     public static final String MOD_ID = "ranchinexpansionmod";
     // Directly reference a slf4j logger
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogManager.getLogger();
+;
+    public static final boolean DEBUG = false;
 
     public RanchinExpansionMod(FMLJavaModLoadingContext context)
     {
         IEventBus modEventBus = context.getModEventBus();
+
+        ModCreativeModTabs.register(modEventBus);
+        ModItems.register(modEventBus);
 
         ModEntities.register(modEventBus);
         modEventBus.addListener(this::commonSetup);

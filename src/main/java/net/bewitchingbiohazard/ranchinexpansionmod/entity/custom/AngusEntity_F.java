@@ -6,6 +6,9 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.AnimationState;
@@ -17,6 +20,7 @@ import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemUtils;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
@@ -30,6 +34,7 @@ public class AngusEntity_F extends Animal {
     }
 
     public final AnimationState idleAnimationState = new AnimationState();
+    public int genderRange = 0;
     private int idleAnimationTimeout = 0;
 
     @Override
@@ -61,12 +66,26 @@ public class AngusEntity_F extends Animal {
         if(this.getPose() == Pose.STANDING) {
             f = Math.min(pPartialTick * 6F, 1f);
         }
-        else
-        {
+        else {
             f = 0f;
         }
         this.walkAnimation.update(f, 0.2f);
     }
+
+    //if female or intersex = milk
+    // if male no milk
+
+    // SEE HORSE CODE
+    // if female and male = offspring
+    // if female and intersex = offspring
+    // if male and intersex == offspring
+    // if male and male == none
+    // if female and female == none
+
+    //public void equipSaddle(@javax.annotation.Nullable SoundSource pSource) {
+    //    this.inventory.setItem(0, new ItemStack(Items.SADDLE));
+    //}
+    // CHANGE TO BELL
 
     @Override
     protected void registerGoals() {
