@@ -4,6 +4,7 @@ import net.bewitchingbiohazard.ranchinexpansionmod.entity.ModEntities;
 import net.bewitchingbiohazard.ranchinexpansionmod.entity.client.AngusRenderer_F;
 import net.bewitchingbiohazard.ranchinexpansionmod.item.ModCreativeModTabs;
 import net.bewitchingbiohazard.ranchinexpansionmod.item.ModItems;
+import net.bewitchingbiohazard.ranchinexpansionmod.loot.ModLootModifiers;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -32,6 +33,8 @@ public class RanchinExpansionMod
     public RanchinExpansionMod(FMLJavaModLoadingContext context)
     {
         IEventBus modEventBus = context.getModEventBus();
+
+        ModLootModifiers.register(modEventBus);
 
         ModCreativeModTabs.register(modEventBus);
         ModItems.register(modEventBus);

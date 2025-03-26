@@ -1,5 +1,11 @@
 {
   "item.ranchinexpansionmod.angusfemale_spawn_egg" : "Angus Female Spawn Egg",
 
+  "item.ranchinexpansionmod.raw_brisket" : "Raw Brisket",
+  "item.ranchinexpansionmod.raw_chuck" : "Raw Chuck",
+  "item.ranchinexpansionmod.raw_loin" : "Raw Loin",
+  "item.ranchinexpansionmod.raw_rib" : "Raw Rib",
+  "item.ranchinexpansionmod.raw_shank" : "Raw Shank",
+
   "creativetab.ranchinexpansion_tab" : "Ranchin' Expansion Tab"
 }

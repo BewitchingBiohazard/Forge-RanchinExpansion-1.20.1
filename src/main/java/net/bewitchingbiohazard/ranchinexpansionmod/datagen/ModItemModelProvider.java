@@ -1,4 +1,4 @@
-package net.bewitchingbiohazard.ranchinexpansionmod.datagen.loot;
+package net.bewitchingbiohazard.ranchinexpansionmod.datagen;
 
 import net.bewitchingbiohazard.ranchinexpansionmod.RanchinExpansionMod;
 import net.bewitchingbiohazard.ranchinexpansionmod.item.ModItems;
