@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 200,
+  "experience": 0.35,
+  "group": "cooked_brisket",
+  "ingredient": {
+    "item": "ranchinexpansionmod:raw_brisket"
+  },
+  "result": "ranchinexpansionmod:cooked_brisket"
+}

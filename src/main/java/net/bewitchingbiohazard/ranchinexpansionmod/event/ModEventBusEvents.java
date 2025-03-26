@@ -2,7 +2,7 @@ package net.bewitchingbiohazard.ranchinexpansionmod.event;
 
 import net.bewitchingbiohazard.ranchinexpansionmod.RanchinExpansionMod;
 import net.bewitchingbiohazard.ranchinexpansionmod.entity.ModEntities;
-import net.bewitchingbiohazard.ranchinexpansionmod.entity.custom.AngusEntity_F;
+import net.bewitchingbiohazard.ranchinexpansionmod.entity.cow.AngusEntity_F;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;

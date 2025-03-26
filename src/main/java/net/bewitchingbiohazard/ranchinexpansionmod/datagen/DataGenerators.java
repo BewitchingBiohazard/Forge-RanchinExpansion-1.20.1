@@ -1,4 +1,4 @@
-package net.bewitchingbiohazard.ranchinexpansionmod.datagen.loot;
+package net.bewitchingbiohazard.ranchinexpansionmod.datagen;
 
 import net.bewitchingbiohazard.ranchinexpansionmod.RanchinExpansionMod;
 import net.minecraft.core.HolderLookup;
@@ -22,5 +22,7 @@ public class DataGenerators {
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
         generator.addProvider(event.includeClient(), new ModItemModelProvider(packOutput, existingFileHelper));
+
+        generator.addProvider(event.includeServer(), new ModGlobalLootModifiersProvider(packOutput));
     }
 }

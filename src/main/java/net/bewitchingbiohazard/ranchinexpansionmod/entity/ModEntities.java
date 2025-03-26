@@ -1,7 +1,7 @@
 package net.bewitchingbiohazard.ranchinexpansionmod.entity;
 
 import net.bewitchingbiohazard.ranchinexpansionmod.RanchinExpansionMod;
-import net.bewitchingbiohazard.ranchinexpansionmod.entity.custom.AngusEntity_F;
+import net.bewitchingbiohazard.ranchinexpansionmod.entity.cow.AngusEntity_F;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -20,4 +20,5 @@ public class ModEntities {
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }
+
 }

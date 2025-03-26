@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 200,
+  "experience": 0.35,
+  "group": "cooked_loin",
+  "ingredient": {
+    "item": "ranchinexpansionmod:raw_loin"
+  },
+  "result": "ranchinexpansionmod:cooked_loin"
+}

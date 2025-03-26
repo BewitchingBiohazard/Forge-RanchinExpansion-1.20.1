@@ -2,7 +2,7 @@ package net.bewitchingbiohazard.ranchinexpansionmod.entity.client;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.bewitchingbiohazard.ranchinexpansionmod.RanchinExpansionMod;
-import net.bewitchingbiohazard.ranchinexpansionmod.entity.custom.AngusEntity_F;
+import net.bewitchingbiohazard.ranchinexpansionmod.entity.cow.AngusEntity_F;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
@@ -18,7 +18,7 @@ public class AngusRenderer_F extends MobRenderer<AngusEntity_F, AngusModelF<Angu
     @Override
     public ResourceLocation getTextureLocation(AngusEntity_F angusEntityF) {
         AtomicReference<ResourceLocation> resourceLocation = new AtomicReference<>(ResourceLocation.fromNamespaceAndPath(RanchinExpansionMod.MOD_ID,
-                "textures/entity/angusf.png"));
+                "textures/entity/angusblack.png"));
         return resourceLocation.get();
     }
 

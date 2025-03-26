@@ -1,4 +1,4 @@
-package net.bewitchingbiohazard.ranchinexpansionmod.entity.custom;
+package net.bewitchingbiohazard.ranchinexpansionmod.entity.cow;
 
 
 import net.bewitchingbiohazard.ranchinexpansionmod.entity.ModEntities;
@@ -19,6 +19,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemUtils;
 import net.minecraft.world.item.Items;
@@ -137,4 +138,5 @@ public class AngusEntity_F extends Animal {
     protected void playStepSound(BlockPos pPos, BlockState pState) {
         this.playSound(SoundEvents.COW_STEP, 0.15F, 1.0F);
     }
+
 }

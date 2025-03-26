@@ -20,6 +20,17 @@ public class ModCreativeModTabs
                     .displayItems((itemDisplayParameters, output) -> {
                         //order shown in tab
                         output.accept(ModItems.ANGUSFEMALE_SPAWN_EGG.get());
+                        output.accept(ModItems.RAW_BRISKET.get());
+                        output.accept(ModItems.COOKED_BRISKET.get());
+                        output.accept(ModItems.RAW_CHUCK.get());
+                        output.accept(ModItems.COOKED_CHUCK.get());
+                        output.accept(ModItems.RAW_LOIN.get());
+                        output.accept(ModItems.COOKED_LOIN.get());
+                        output.accept(ModItems.RAW_RIB.get());
+                        output.accept(ModItems.COOKED_RIB.get());
+                        output.accept(ModItems.RAW_SHANK.get());
+                        output.accept(ModItems.COOKED_SHANK.get());
+
                     })
                     .build());
     // REPLACE ICON ABOVE

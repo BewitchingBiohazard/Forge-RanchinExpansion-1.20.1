@@ -1,4 +1,4 @@
-package net.bewitchingbiohazard.ranchinexpansionmod.datagen.loot;
+package net.bewitchingbiohazard.ranchinexpansionmod.datagen;
 
 import net.bewitchingbiohazard.ranchinexpansionmod.RanchinExpansionMod;
 import net.bewitchingbiohazard.ranchinexpansionmod.item.ModItems;
@@ -15,7 +15,7 @@ public class ModItemModelProvider extends ItemModelProvider
     @Override
     protected void registerModels()
     {
-        withExistingParent(ModItems.ANGUSFEMALE_SPAWN_EGG.getId().getPath(), mcLoc("item/angusf_spawn_egg.png"));
+        withExistingParent(ModItems.ANGUSFEMALE_SPAWN_EGG.getId().getPath(), mcLoc("item/angusfemale_spawn_egg.png"));
     }
 }
 
