@@ -7,7 +7,6 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "ranchinexpansionmod:raw_brisket",
           "functions": [
             {
               "function": "set_count",
