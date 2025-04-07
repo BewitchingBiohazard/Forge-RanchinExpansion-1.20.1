@@ -6,10 +6,16 @@ import net.minecraft.resources.ResourceLocation;
 
 public class ModModelLayers {
     public static final ModelLayerLocation ANGUS_LAYER;
+    public static final ModelLayerLocation WYANDOTTE_LAYER;
 
     static {
         ANGUS_LAYER = new ModelLayerLocation(
                 ResourceLocation.fromNamespaceAndPath(RanchinExpansionMod.MOD_ID, "angus_layer"), "main");
+    }
+
+    static {
+        WYANDOTTE_LAYER = new ModelLayerLocation(
+                ResourceLocation.fromNamespaceAndPath(RanchinExpansionMod.MOD_ID, "wyandotte_layer"), "main");
     }
 
 }

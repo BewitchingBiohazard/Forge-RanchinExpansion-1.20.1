@@ -5,7 +5,7 @@ import net.minecraft.client.animation.AnimationDefinition;
 import net.minecraft.client.animation.Keyframe;
 import net.minecraft.client.animation.KeyframeAnimations;
 
-public class ModAnimationsDefinitions {
+public class CowAnimations {
 
     public static final AnimationDefinition WALKING_ANIMATION = AnimationDefinition.Builder.withLength(6f).looping()
         .addAnimation("Head",

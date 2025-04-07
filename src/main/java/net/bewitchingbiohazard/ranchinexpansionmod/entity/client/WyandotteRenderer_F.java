@@ -3,6 +3,7 @@ package net.bewitchingbiohazard.ranchinexpansionmod.entity.client;
 import com.google.common.collect.Maps;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.bewitchingbiohazard.ranchinexpansionmod.RanchinExpansionMod;
+import net.bewitchingbiohazard.ranchinexpansionmod.entity.chicken.WyandotteEntity_F;
 import net.bewitchingbiohazard.ranchinexpansionmod.entity.cow.AngusEntity_F;
 import net.bewitchingbiohazard.ranchinexpansionmod.entity.variant.AngusVariant;
 import net.minecraft.Util;
@@ -10,25 +11,19 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 
 
-public class AngusRenderer_F extends MobRenderer<AngusEntity_F, AngusModelF<AngusEntity_F>> {
-    public AngusRenderer_F(EntityRendererProvider.Context pContext) {
-        super(pContext, new AngusModelF<>(pContext.bakeLayer(ModModelLayers.ANGUS_LAYER)), .5f);
+public class WyandotteRenderer_F extends MobRenderer<WyandotteEntity_F, WyandotteModelF<WyandotteEntity_F>> {
+    public WyandotteRenderer_F(EntityRendererProvider.Context pContext) {
+        super(pContext, new WyandotteModelF<>(pContext.bakeLayer(ModModelLayers.WYANDOTTE_LAYER)), .5f);
     }
-    public static final Map<AngusVariant, ResourceLocation> LOCATION_BY_VARIANT =
-            Util.make(Maps.newEnumMap(AngusVariant.class), (p_114874_) -> {
-                p_114874_.put(AngusVariant.BLACK,
-                        new ResourceLocation(RanchinExpansionMod.MOD_ID,  "textures/entity/angusblack.png"));
-                p_114874_.put(AngusVariant.RED,
-                        new ResourceLocation(RanchinExpansionMod.MOD_ID,  "textures/entity/angusred.png"));
-            });
 
     @Override
-    public void render(AngusEntity_F pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack,
+    public void render(WyandotteEntity_F pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack,
                        MultiBufferSource pBuffer, int pPackedLight) {
         pMatrixStack.scale(2.25f, 2.25f, 2.25f);
         if (pEntity.isBaby()) {
@@ -39,7 +34,9 @@ public class AngusRenderer_F extends MobRenderer<AngusEntity_F, AngusModelF<Angu
     }
 
     @Override
-    public ResourceLocation getTextureLocation(AngusEntity_F instance) {
-        return LOCATION_BY_VARIANT.get(instance.getVariant());
+    public @NotNull ResourceLocation getTextureLocation(WyandotteEntity_F wyandotteEntityF) {
+        AtomicReference<ResourceLocation> resourceLocation = new AtomicReference<>(ResourceLocation.fromNamespaceAndPath(RanchinExpansionMod.MOD_ID,
+                "textures/entity/chickentest.png"));
+        return resourceLocation.get();
     }
 }

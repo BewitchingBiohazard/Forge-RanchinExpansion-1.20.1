@@ -1,6 +1,7 @@
 package net.bewitchingbiohazard.ranchinexpansionmod.entity;
 
 import net.bewitchingbiohazard.ranchinexpansionmod.RanchinExpansionMod;
+import net.bewitchingbiohazard.ranchinexpansionmod.entity.chicken.WyandotteEntity_F;
 import net.bewitchingbiohazard.ranchinexpansionmod.entity.cow.AngusEntity_F;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -15,7 +16,11 @@ public class ModEntities {
 
     public static final RegistryObject<EntityType<AngusEntity_F>> ANGUS_F =
             ENTITY_TYPES.register("angusfemale", () -> EntityType.Builder.of(AngusEntity_F::new, MobCategory.CREATURE)
-                    .sized(2f, 2f).build("angusfemale"));
+                    .sized(1.2f, 1.3f).build("angusfemale"));
+
+    public static final RegistryObject<EntityType<WyandotteEntity_F>> WYANDOTTE_F =
+            ENTITY_TYPES.register("wyandottefemale", () -> EntityType.Builder.of(WyandotteEntity_F::new, MobCategory.CREATURE)
+                    .sized(1f, 1f).build("wyandottefemale"));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);

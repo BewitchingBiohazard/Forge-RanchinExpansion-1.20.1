@@ -1,5 +1,19 @@
 {
   "item.ranchinexpansionmod.angusfemale_spawn_egg" : "Angus Female Spawn Egg",
+  "item.ranchinexpansionmod.wyanfemale_spawn_egg" : "Wyandotte Female Spawn Egg",
+
+  "item.ranchinexpansionmod.raw_brisket" : "Raw Brisket",
+  "item.ranchinexpansionmod.raw_chuck" : "Raw Chuck",
+  "item.ranchinexpansionmod.raw_loin" : "Raw Loin",
+  "item.ranchinexpansionmod.raw_rib" : "Raw Rib",
+  "item.ranchinexpansionmod.raw_shank" : "Raw Shank",
+
+  "item.ranchinexpansionmod.cooked_brisket" : "Cooked Brisket",
+  "item.ranchinexpansionmod.cooked_chuck" : "Cooked Chuck",
+  "item.ranchinexpansionmod.cooked_loin" : "Cooked Loin",
+  "item.ranchinexpansionmod.cooked_rib" : "Cooked Rib",
+  "item.ranchinexpansionmod.cooked_shank" : "Cooked Shank",
+
 
   "creativetab.ranchinexpansion_tab" : "Ranchin' Expansion Tab"
 }

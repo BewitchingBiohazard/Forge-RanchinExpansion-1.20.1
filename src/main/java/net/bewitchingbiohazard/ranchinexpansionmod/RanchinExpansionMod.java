@@ -2,6 +2,7 @@ package net.bewitchingbiohazard.ranchinexpansionmod;
 
 import net.bewitchingbiohazard.ranchinexpansionmod.entity.ModEntities;
 import net.bewitchingbiohazard.ranchinexpansionmod.entity.client.AngusRenderer_F;
+import net.bewitchingbiohazard.ranchinexpansionmod.entity.client.WyandotteRenderer_F;
 import net.bewitchingbiohazard.ranchinexpansionmod.item.ModCreativeModTabs;
 import net.bewitchingbiohazard.ranchinexpansionmod.item.ModItems;
 import net.bewitchingbiohazard.ranchinexpansionmod.loot.ModLootModifiers;
@@ -18,6 +19,8 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import static net.bewitchingbiohazard.ranchinexpansionmod.entity.ModEntities.*;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(RanchinExpansionMod.MOD_ID)
@@ -39,7 +42,7 @@ public class RanchinExpansionMod
         ModCreativeModTabs.register(modEventBus);
         ModItems.register(modEventBus);
 
-        ModEntities.register(modEventBus);
+        register(modEventBus);
         modEventBus.addListener(this::commonSetup);
 
         MinecraftForge.EVENT_BUS.register(this);
@@ -69,7 +72,8 @@ public class RanchinExpansionMod
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
-            EntityRenderers.register(ModEntities.ANGUS_F.get(), AngusRenderer_F::new);
+            EntityRenderers.register(ANGUS_F.get(), AngusRenderer_F::new);
+            EntityRenderers.register(WYANDOTTE_F.get(), WyandotteRenderer_F ::new);
         }
     }
 }
