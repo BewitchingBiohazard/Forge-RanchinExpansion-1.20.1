@@ -2,6 +2,7 @@ package net.bewitchingbiohazard.ranchinexpansionmod;
 
 import net.bewitchingbiohazard.ranchinexpansionmod.entity.ModEntities;
 import net.bewitchingbiohazard.ranchinexpansionmod.entity.client.AngusRenderer_F;
+import net.bewitchingbiohazard.ranchinexpansionmod.entity.client.LandraceRenderer_F;
 import net.bewitchingbiohazard.ranchinexpansionmod.entity.client.WyandotteRenderer_F;
 import net.bewitchingbiohazard.ranchinexpansionmod.item.ModCreativeModTabs;
 import net.bewitchingbiohazard.ranchinexpansionmod.item.ModItems;
@@ -74,6 +75,7 @@ public class RanchinExpansionMod
         {
             EntityRenderers.register(ANGUS_F.get(), AngusRenderer_F::new);
             EntityRenderers.register(WYANDOTTE_F.get(), WyandotteRenderer_F ::new);
+            EntityRenderers.register(LANDRACE_F.get(), LandraceRenderer_F :: new);
         }
     }
 }

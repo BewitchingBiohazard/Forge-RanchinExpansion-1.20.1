@@ -6,6 +6,7 @@ package net.bewitchingbiohazard.ranchinexpansionmod.entity.client;// Made with B
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.bewitchingbiohazard.ranchinexpansionmod.entity.animations.CowAnimations;
+import net.bewitchingbiohazard.ranchinexpansionmod.entity.cow.AngusEntity_F;
 import net.minecraft.client.model.HierarchicalModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
@@ -14,6 +15,10 @@ import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.animal.Cow;
+import net.minecraftforge.client.event.RenderLivingEvent;
+import net.minecraftforge.client.event.RenderPlayerEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class AngusModelF<T extends Entity> extends HierarchicalModel<T> {
 	// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
@@ -130,12 +135,13 @@ public class AngusModelF<T extends Entity> extends HierarchicalModel<T> {
 		return LayerDefinition.create(meshdefinition, 32, 32);
 	}
 
+
 	@Override
 	public void setupAnim(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.root().getAllParts().forEach(ModelPart::resetPose);
 		this.applyHeadRotation(netHeadYaw, headPitch, ageInTicks);
 
-		this.animateWalk(CowAnimations.IDLE_ANIMATION, limbSwing, limbSwingAmount, 25f, 2.5f);
+		this.animate(((AngusEntity_F) entity).idleAnimationState, CowAnimations.IDLE_ANIMATION, ageInTicks, 1f);
 		this.animateWalk(CowAnimations.WALKING_ANIMATION, limbSwing, limbSwingAmount, 25f, 2.5f);
 		this.animateWalk(CowAnimations.EAT_ANIMATION, limbSwing, limbSwingAmount, 25f, 2.5f);
 	}

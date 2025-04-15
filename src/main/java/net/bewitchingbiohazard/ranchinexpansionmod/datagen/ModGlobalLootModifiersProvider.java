@@ -20,4 +20,7 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
         add("raw_brisket_from_angus", new AddItemModifier(new LootItemCondition[]{
                 new LootTableIdCondition.Builder(new ResourceLocation("entities/angusfemale")).build()} , ModItems.RAW_BRISKET.get()));
     }
+      //  add("raw_chuck_from_angus", new AddItemModifier(new LootItemCondition[]{
+              //  new LootTableIdCondition.Builder(new ResourceLocation("entities/angusfemale")).build()} , ModItems.RAW_CHUCK.get()));
+    //}
 }

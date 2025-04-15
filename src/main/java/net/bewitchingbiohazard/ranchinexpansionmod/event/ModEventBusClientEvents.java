@@ -2,6 +2,7 @@ package net.bewitchingbiohazard.ranchinexpansionmod.event;
 
 import net.bewitchingbiohazard.ranchinexpansionmod.RanchinExpansionMod;
 import net.bewitchingbiohazard.ranchinexpansionmod.entity.client.AngusModelF;
+import net.bewitchingbiohazard.ranchinexpansionmod.entity.client.LandraceModelF;
 import net.bewitchingbiohazard.ranchinexpansionmod.entity.client.ModModelLayers;
 import net.bewitchingbiohazard.ranchinexpansionmod.entity.client.WyandotteModelF;
 import net.minecraftforge.api.distmarker.Dist;
@@ -15,5 +16,6 @@ public class ModEventBusClientEvents {
     public static void registerLayer(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(ModModelLayers.ANGUS_LAYER, AngusModelF::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.WYANDOTTE_LAYER, WyandotteModelF::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.LANDRACE_LAYER, LandraceModelF::createBodyLayer);
     }
 }

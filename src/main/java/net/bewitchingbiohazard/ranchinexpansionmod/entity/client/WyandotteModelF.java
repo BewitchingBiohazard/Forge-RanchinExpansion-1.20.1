@@ -6,6 +6,7 @@ package net.bewitchingbiohazard.ranchinexpansionmod.entity.client;// Made with B
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.bewitchingbiohazard.ranchinexpansionmod.entity.animations.ChickenAnimations;
+import net.bewitchingbiohazard.ranchinexpansionmod.entity.animations.CowAnimations;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.HierarchicalModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
@@ -15,8 +16,9 @@ import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
+import org.jetbrains.annotations.NotNull;
 
-public class WyandotteModelF<T extends Entity> extends EntityModel<T> {
+public class WyandotteModelF<T extends Entity> extends HierarchicalModel<T>{
 	// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
 	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("modid", "chicken_item_model_converted"), "main");
 	private final ModelPart Chicken;
@@ -108,25 +110,25 @@ public class WyandotteModelF<T extends Entity> extends EntityModel<T> {
 	public void setupAnim(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.root().getAllParts().forEach(ModelPart::resetPose);
 		this.applyHeadRotation(netHeadYaw, headPitch, ageInTicks);
-		//this.animateWalk(ChickenAnimations.WALKING_ANIMATION, limbSwing, limbSwingAmount, 25f, 2.5f);
-		//Other animations here
+
+		this.animateWalk(ChickenAnimations.WALKING_ANIMATION, limbSwing, limbSwingAmount, 20f, 2f);
 	}
 
 	private void applyHeadRotation(float pNetHeadYaw, float pHeadPitch, float pAgeInTicks)
 	{
-		pNetHeadYaw = Mth.clamp(pNetHeadYaw, -30.0F, 30.0F);
-		pHeadPitch = Mth.clamp(pHeadPitch, -25.0F, 45.0F);
+		pNetHeadYaw = Mth.clamp(pNetHeadYaw, -5.0F, 5.0F);
+		pHeadPitch = Mth.clamp(pHeadPitch, 0F, 20.0F);
 
 		this.Head.yRot = pNetHeadYaw * ((float)Math.PI / 180F);
 		this.Head.zRot = pHeadPitch * ((float)Math.PI / 180F);
 	}
 
-	private ModelPart root() {
-		return Chicken;
-	}
-
-	@Override
+@Override
 	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
 		Chicken.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	}
+
+	public ModelPart root() {
+		return Chicken;
 	}
 }

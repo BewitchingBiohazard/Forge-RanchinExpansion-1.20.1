@@ -21,6 +21,7 @@ public class ModCreativeModTabs
                         //order shown in tab
                         output.accept(ModItems.ANGUSFEMALE_SPAWN_EGG.get());
                         output.accept(ModItems.WYANFEMALE_SPAWN_EGG.get());
+                        output.accept(ModItems.LANDRACEFEMALE_SPAWN_EGG.get());
                         output.accept(ModItems.RAW_BRISKET.get());
                         output.accept(ModItems.COOKED_BRISKET.get());
                         output.accept(ModItems.RAW_CHUCK.get());
@@ -31,6 +32,7 @@ public class ModCreativeModTabs
                         output.accept(ModItems.COOKED_RIB.get());
                         output.accept(ModItems.RAW_SHANK.get());
                         output.accept(ModItems.COOKED_SHANK.get());
+                        output.accept(ModItems.RING.get());
 
                     })
                     .build());

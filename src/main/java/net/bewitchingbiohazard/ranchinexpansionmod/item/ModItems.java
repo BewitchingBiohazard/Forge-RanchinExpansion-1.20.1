@@ -2,6 +2,7 @@ package net.bewitchingbiohazard.ranchinexpansionmod.item;
 
 import net.bewitchingbiohazard.ranchinexpansionmod.RanchinExpansionMod;
 import net.bewitchingbiohazard.ranchinexpansionmod.entity.ModEntities;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -20,6 +21,10 @@ public class ModItems {
 
     public static final RegistryObject<Item> WYANFEMALE_SPAWN_EGG = ITEMS.register("wyanfemale_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.WYANDOTTE_F, 0x7e9680, 0xc5d1c5,
+                    new Item.Properties()));
+
+    public static final RegistryObject<Item> LANDRACEFEMALE_SPAWN_EGG = ITEMS.register("landracefemale_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.LANDRACE_F, 0x7e9680, 0xc5d1c5,
                     new Item.Properties()));
 
     //Raw Meat - Cow
@@ -46,6 +51,8 @@ public class ModItems {
     public static final RegistryObject<Item> COOKED_SHANK = ITEMS.register("cooked_shank",
             () -> new Item(new Item.Properties().food(ModFoods.COOKED_SHANK)));
 
+    public static final RegistryObject<Item> RING = ITEMS.register("ring",
+            () -> new Item(new Item.Properties()));
 
 
     public static void register(IEventBus eventBus) {

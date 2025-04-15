@@ -1,17 +1,10 @@
-package net.bewitchingbiohazard.ranchinexpansionmod.entity.cow;
+package net.bewitchingbiohazard.ranchinexpansionmod.entity.pig;
 
 
-import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.bewitchingbiohazard.ranchinexpansionmod.entity.ModEntities;
 import net.bewitchingbiohazard.ranchinexpansionmod.entity.client.AngusModelF;
-import net.bewitchingbiohazard.ranchinexpansionmod.entity.client.AngusRenderer_F;
 import net.bewitchingbiohazard.ranchinexpansionmod.entity.variant.AngusVariant;
-import net.bewitchingbiohazard.ranchinexpansionmod.item.ModItems;
 import net.minecraft.Util;
-import net.minecraft.client.gui.Font;
-import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -20,7 +13,6 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -31,9 +23,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.ItemUtils;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
@@ -41,28 +31,15 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.client.event.RegisterNamedRenderTypesEvent;
-import net.minecraftforge.client.event.RenderLivingEvent;
-import net.minecraftforge.client.event.RenderNameTagEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import org.jetbrains.annotations.Nullable;
-import org.joml.Matrix4f;
 
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
-
-public class AngusEntity_F extends Animal {
-    public AngusEntity_F(EntityType<? extends Animal> pEntityType, Level pLevel) {
+public class LandraceEntity_F extends Animal {
+    public LandraceEntity_F(EntityType<? extends Animal> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
 
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
-
-
-    private static final EntityDataAccessor<Integer> DATA_ID_TYPE_VARIANT =
-            SynchedEntityData.defineId(AngusEntity_F.class, EntityDataSerializers.INT);
 
     @Override
     public void tick() {
@@ -104,7 +81,7 @@ public class AngusEntity_F extends Animal {
         this.goalSelector.addGoal(0, new FloatGoal(this));
         this.goalSelector.addGoal(1, new PanicGoal(this, (double)2.0F));
         this.goalSelector.addGoal(2, new BreedGoal(this, (double)1.0F));
-        this.goalSelector.addGoal(3, new TemptGoal(this, (double)1.25F, Ingredient.of(new ItemLike[]{Items.WHEAT}), false));
+        this.goalSelector.addGoal(3, new TemptGoal(this, (double)1.25F, Ingredient.of(new ItemLike[]{Items.CARROT}), false));
         this.goalSelector.addGoal(4, new FollowParentGoal(this, (double)1.25F));
         this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, (double)1.0F));
         this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 6.0F));
@@ -122,93 +99,36 @@ public class AngusEntity_F extends Animal {
 
     @Override
     public @Nullable AgeableMob getBreedOffspring(ServerLevel serverLevel, AgeableMob ageableMob) {
-        return ModEntities.ANGUS_F.get().create(serverLevel);
+        return ModEntities.LANDRACE_F.get().create(serverLevel);
     }
 
     @Override
     public boolean isFood(ItemStack pStack) {
-        return pStack.is(Items.WHEAT);
+        return pStack.is(Items.CARROT);
     }
 
     @Override
     protected @Nullable SoundEvent getAmbientSound() {
-        return SoundEvents.COW_AMBIENT;
+        return SoundEvents.PIG_AMBIENT;
     }
 
     @Override
     protected @Nullable SoundEvent getHurtSound(DamageSource pDamageSource) {
-        return SoundEvents.COW_HURT;
+        return SoundEvents.PIG_HURT;
     }
 
     @Override
     protected @Nullable SoundEvent getDeathSound() {
-        return SoundEvents.COW_DEATH;
+        return SoundEvents.PIG_DEATH;
     }
 
     @Override
     protected void playStepSound(BlockPos pPos, BlockState pState) {
-        this.playSound(SoundEvents.COW_STEP, 0.15F, 1.0F);
+        this.playSound(SoundEvents.PIG_STEP, 0.15F, 1.0F);
     }
 
     @Override
     public Vec3 getLeashOffset() {
         return new Vec3(0.0D, 0.6F * this.getEyeHeight(), this.getBbWidth() * 0.4F);
     }
-
-    public InteractionResult mobInteract(Player pPlayer, InteractionHand pHand) {
-        ItemStack $$2 = pPlayer.getItemInHand(pHand);
-
-        if ($$2.is(Items.BUCKET) && !this.isBaby()) {
-            pPlayer.playSound(SoundEvents.COW_MILK, 1.0F, 1.0F);
-            ItemStack $$3 = ItemUtils.createFilledResult($$2, pPlayer, Items.MILK_BUCKET.getDefaultInstance());
-            pPlayer.setItemInHand(pHand, $$3);
-            return InteractionResult.sidedSuccess(this.level().isClientSide);
-        } else if ($$2.is(Items.BELL)) {
-            pPlayer.playSound(SoundEvents.COW_MILK, 1.0F, 1.0F);
-
-            return InteractionResult.sidedSuccess(this.level().isClientSide);
-        } else {
-            return super.mobInteract(pPlayer, pHand);
-        }
-    }
-
-    /* VARIANTS */
-    public SpawnGroupData finalizeSpawn(ServerLevelAccessor p_146746_, DifficultyInstance p_146747_,
-                                        MobSpawnType p_146748_, @Nullable SpawnGroupData p_146749_,
-                                        @Nullable CompoundTag p_146750_) {
-        AngusVariant variant = Util.getRandom(AngusVariant.values(), this.random);
-        setVariant(variant);
-        return super.finalizeSpawn(p_146746_, p_146747_, p_146748_, p_146749_, p_146750_);
-    }
-
-    @Override
-    public void readAdditionalSaveData(CompoundTag tag) {
-        super.readAdditionalSaveData(tag);
-        this.entityData.set(DATA_ID_TYPE_VARIANT, tag.getInt("Variant"));
-    }
-
-    @Override
-    public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag);
-        tag.putInt("Variant", this.getTypeVariant());
-    }
-
-    @Override
-    protected void defineSynchedData() {
-        super.defineSynchedData();
-        this.entityData.define(DATA_ID_TYPE_VARIANT, 0);
-    }
-
-    public AngusVariant getVariant() {
-        return AngusVariant.byId(this.getTypeVariant() & 255);
-    }
-
-    private int getTypeVariant() {
-        return this.entityData.get(DATA_ID_TYPE_VARIANT);
-    }
-
-    private void setVariant(AngusVariant variant) {
-        this.entityData.set(DATA_ID_TYPE_VARIANT, variant.getId() & 255);
-    }
-
 }
