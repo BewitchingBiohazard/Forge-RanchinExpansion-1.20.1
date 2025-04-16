@@ -1,19 +1,15 @@
-package net.bewitchingbiohazard.ranchinexpansionmod.entity.client;
+package net.bewitchingbiohazard.ranchinexpansionmod.entity.client.chicken;
 
-import com.google.common.collect.Maps;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.bewitchingbiohazard.ranchinexpansionmod.RanchinExpansionMod;
 import net.bewitchingbiohazard.ranchinexpansionmod.entity.chicken.WyandotteEntity_F;
-import net.bewitchingbiohazard.ranchinexpansionmod.entity.cow.AngusEntity_F;
-import net.bewitchingbiohazard.ranchinexpansionmod.entity.variant.AngusVariant;
-import net.minecraft.Util;
+import net.bewitchingbiohazard.ranchinexpansionmod.entity.client.ModModelLayers;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 
 

@@ -1,13 +1,13 @@
-package net.bewitchingbiohazard.ranchinexpansionmod.entity.client;
+package net.bewitchingbiohazard.ranchinexpansionmod.entity.client.pig;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.bewitchingbiohazard.ranchinexpansionmod.RanchinExpansionMod;
+import net.bewitchingbiohazard.ranchinexpansionmod.entity.client.ModModelLayers;
 import net.bewitchingbiohazard.ranchinexpansionmod.entity.pig.LandraceEntity_F;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -19,7 +19,7 @@ public class LandraceRenderer_F extends MobRenderer<LandraceEntity_F, LandraceMo
     @Override
     public ResourceLocation getTextureLocation(LandraceEntity_F landraceEntityF) {
         AtomicReference<ResourceLocation> resourceLocation = new AtomicReference<>(ResourceLocation.fromNamespaceAndPath(RanchinExpansionMod.MOD_ID,
-                "textures/entity/pigtest.png"));
+                "textures/entity/landrace.png"));
         return resourceLocation.get();
     }
 

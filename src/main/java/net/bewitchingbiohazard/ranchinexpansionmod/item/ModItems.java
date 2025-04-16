@@ -27,6 +27,11 @@ public class ModItems {
             () -> new ForgeSpawnEggItem(ModEntities.LANDRACE_F, 0x7e9680, 0xc5d1c5,
                     new Item.Properties()));
 
+    public static final RegistryObject<Item> SPOTTEDFEMALE_SPAWN_EGG = ITEMS.register("spottedfemale_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.SPOTTED_F, 0x7e9880, 0xc5e1c5,
+                    new Item.Properties()));
+
+
     //Raw Meat - Cow
     public static final RegistryObject<Item> RAW_BRISKET = ITEMS.register("raw_brisket",
             () -> new Item(new Item.Properties().food(ModFoods.RAW_BRISKET)));

@@ -1,17 +1,9 @@
 package net.bewitchingbiohazard.ranchinexpansionmod.entity.cow;
 
 
-import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.bewitchingbiohazard.ranchinexpansionmod.entity.ModEntities;
-import net.bewitchingbiohazard.ranchinexpansionmod.entity.client.AngusModelF;
-import net.bewitchingbiohazard.ranchinexpansionmod.entity.client.AngusRenderer_F;
 import net.bewitchingbiohazard.ranchinexpansionmod.entity.variant.AngusVariant;
-import net.bewitchingbiohazard.ranchinexpansionmod.item.ModItems;
 import net.minecraft.Util;
-import net.minecraft.client.gui.Font;
-import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -20,7 +12,6 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -31,7 +22,6 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemUtils;
 import net.minecraft.world.item.Items;
@@ -41,16 +31,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.client.event.RegisterNamedRenderTypesEvent;
-import net.minecraftforge.client.event.RenderLivingEvent;
-import net.minecraftforge.client.event.RenderNameTagEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import org.jetbrains.annotations.Nullable;
-import org.joml.Matrix4f;
-
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class AngusEntity_F extends Animal {
     public AngusEntity_F(EntityType<? extends Animal> pEntityType, Level pLevel) {
@@ -170,6 +151,14 @@ public class AngusEntity_F extends Animal {
         } else {
             return super.mobInteract(pPlayer, pHand);
         }
+    }
+
+    @Override
+    public SynchedEntityData getEntityData() {
+        boolean bellVisible = false;
+        boolean nametagVisible = false;
+        boolean ringVisible = false;
+        return super.getEntityData();
     }
 
     /* VARIANTS */

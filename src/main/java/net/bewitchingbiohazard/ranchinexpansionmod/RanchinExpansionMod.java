@@ -1,9 +1,9 @@
 package net.bewitchingbiohazard.ranchinexpansionmod;
 
-import net.bewitchingbiohazard.ranchinexpansionmod.entity.ModEntities;
-import net.bewitchingbiohazard.ranchinexpansionmod.entity.client.AngusRenderer_F;
-import net.bewitchingbiohazard.ranchinexpansionmod.entity.client.LandraceRenderer_F;
-import net.bewitchingbiohazard.ranchinexpansionmod.entity.client.WyandotteRenderer_F;
+import net.bewitchingbiohazard.ranchinexpansionmod.entity.client.cow.AngusRenderer_F;
+import net.bewitchingbiohazard.ranchinexpansionmod.entity.client.pig.LandraceRenderer_F;
+import net.bewitchingbiohazard.ranchinexpansionmod.entity.client.chicken.WyandotteRenderer_F;
+import net.bewitchingbiohazard.ranchinexpansionmod.entity.client.pig.SpottedRenderer_F;
 import net.bewitchingbiohazard.ranchinexpansionmod.item.ModCreativeModTabs;
 import net.bewitchingbiohazard.ranchinexpansionmod.item.ModItems;
 import net.bewitchingbiohazard.ranchinexpansionmod.loot.ModLootModifiers;
@@ -76,6 +76,7 @@ public class RanchinExpansionMod
             EntityRenderers.register(ANGUS_F.get(), AngusRenderer_F::new);
             EntityRenderers.register(WYANDOTTE_F.get(), WyandotteRenderer_F ::new);
             EntityRenderers.register(LANDRACE_F.get(), LandraceRenderer_F :: new);
+            EntityRenderers.register(SPOTTED_F.get(), SpottedRenderer_F:: new);
         }
     }
 }

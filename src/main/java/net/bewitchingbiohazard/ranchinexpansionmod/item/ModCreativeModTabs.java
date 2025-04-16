@@ -22,6 +22,7 @@ public class ModCreativeModTabs
                         output.accept(ModItems.ANGUSFEMALE_SPAWN_EGG.get());
                         output.accept(ModItems.WYANFEMALE_SPAWN_EGG.get());
                         output.accept(ModItems.LANDRACEFEMALE_SPAWN_EGG.get());
+                        output.accept(ModItems.SPOTTEDFEMALE_SPAWN_EGG.get());
                         output.accept(ModItems.RAW_BRISKET.get());
                         output.accept(ModItems.COOKED_BRISKET.get());
                         output.accept(ModItems.RAW_CHUCK.get());

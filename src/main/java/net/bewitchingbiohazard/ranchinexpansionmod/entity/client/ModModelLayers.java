@@ -8,6 +8,7 @@ public class ModModelLayers {
     public static final ModelLayerLocation ANGUS_LAYER;
     public static final ModelLayerLocation WYANDOTTE_LAYER;
     public static final ModelLayerLocation LANDRACE_LAYER;
+    public static final ModelLayerLocation SPOTTED_LAYER;
 
     static {
         ANGUS_LAYER = new ModelLayerLocation(
@@ -22,6 +23,11 @@ public class ModModelLayers {
     static {
         LANDRACE_LAYER= new ModelLayerLocation(
                 ResourceLocation.fromNamespaceAndPath(RanchinExpansionMod.MOD_ID, "landrace_layer"), "main");
+    }
+
+    static {
+        SPOTTED_LAYER= new ModelLayerLocation(
+                ResourceLocation.fromNamespaceAndPath(RanchinExpansionMod.MOD_ID, "spotted_layer"), "main");
     }
 
 }

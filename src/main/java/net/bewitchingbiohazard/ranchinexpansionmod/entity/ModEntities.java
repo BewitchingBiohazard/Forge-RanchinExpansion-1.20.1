@@ -2,9 +2,9 @@ package net.bewitchingbiohazard.ranchinexpansionmod.entity;
 
 import net.bewitchingbiohazard.ranchinexpansionmod.RanchinExpansionMod;
 import net.bewitchingbiohazard.ranchinexpansionmod.entity.chicken.WyandotteEntity_F;
-import net.bewitchingbiohazard.ranchinexpansionmod.entity.client.LandraceRenderer_F;
 import net.bewitchingbiohazard.ranchinexpansionmod.entity.cow.AngusEntity_F;
 import net.bewitchingbiohazard.ranchinexpansionmod.entity.pig.LandraceEntity_F;
+import net.bewitchingbiohazard.ranchinexpansionmod.entity.pig.SpottedEntity_F;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -27,6 +27,10 @@ public class ModEntities {
     public static final RegistryObject<EntityType<LandraceEntity_F>> LANDRACE_F =
             ENTITY_TYPES.register("landracefemale", () -> EntityType.Builder.of(LandraceEntity_F::new, MobCategory.CREATURE)
                     .sized(1f, 1f).build("landracefemale"));
+
+    public static final RegistryObject<EntityType<SpottedEntity_F>> SPOTTED_F =
+            ENTITY_TYPES.register("spottedfemale", () -> EntityType.Builder.of(SpottedEntity_F::new, MobCategory.CREATURE)
+                    .sized(1f, 1f).build("spottedfemale"));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
