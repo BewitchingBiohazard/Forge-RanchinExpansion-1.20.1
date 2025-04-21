@@ -6,7 +6,7 @@ package net.bewitchingbiohazard.ranchinexpansionmod.entity.client.cow;// Made wi
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.bewitchingbiohazard.ranchinexpansionmod.entity.animations.CowAnimations;
-import net.bewitchingbiohazard.ranchinexpansionmod.entity.cow.AngusEntity_F;
+import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.HierarchicalModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
@@ -16,10 +16,10 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 
-public class AngusModelF<T extends Entity> extends HierarchicalModel<T> {
+public class LonghornModelF<T extends Entity> extends HierarchicalModel<T> {
 	// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
-	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("modid", "f_cowangus_javamodel"), "main");
-	private final ModelPart Angus;
+	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("modid", "cow_test_model"), "main");
+	private final ModelPart Longhorn;
 	private final ModelPart Body;
 	private final ModelPart Legs;
 	private final ModelPart B_Left;
@@ -35,19 +35,22 @@ public class AngusModelF<T extends Entity> extends HierarchicalModel<T> {
 	private final ModelPart BottomJaw;
 	private final ModelPart Ring;
 	private final ModelPart Tag;
-	private final ModelPart Tail;
+	private final ModelPart Horn;
+	private final ModelPart Rhorn;
+	private final ModelPart Lhorn;
 	private final ModelPart Bell;
 	private final ModelPart Neck;
+	private final ModelPart Tail;
 
-	public AngusModelF(ModelPart root) {
-		this.Angus = root.getChild("Angus");
-		this.Body = this.Angus.getChild("Body");
-		this.Legs = this.Angus.getChild("Legs");
+	public LonghornModelF(ModelPart root) {
+		this.Longhorn = root.getChild("Longhorn");
+		this.Body = this.Longhorn.getChild("Body");
+		this.Legs = this.Longhorn.getChild("Legs");
 		this.B_Left = this.Legs.getChild("B_Left");
 		this.F_Right = this.Legs.getChild("F_Right");
 		this.F_Left = this.Legs.getChild("F_Left");
 		this.B_Right = this.Legs.getChild("B_Right");
-		this.Head = this.Angus.getChild("Head");
+		this.Head = this.Longhorn.getChild("Head");
 		this.Ears = this.Head.getChild("Ears");
 		this.L_Ear = this.Ears.getChild("L_Ear");
 		this.R_Ear = this.Ears.getChild("R_Ear");
@@ -56,20 +59,23 @@ public class AngusModelF<T extends Entity> extends HierarchicalModel<T> {
 		this.BottomJaw = this.Head.getChild("BottomJaw");
 		this.Ring = this.Head.getChild("Ring");
 		this.Tag = this.Head.getChild("Tag");
-		this.Tail = this.Angus.getChild("Tail");
-		this.Bell = this.Angus.getChild("Bell");
-		this.Neck = this.Angus.getChild("Neck");
+		this.Horn = this.Head.getChild("Horn");
+		this.Rhorn = this.Horn.getChild("Rhorn");
+		this.Lhorn = this.Horn.getChild("Lhorn");
+		this.Bell = this.Longhorn.getChild("Bell");
+		this.Neck = this.Longhorn.getChild("Neck");
+		this.Tail = this.Longhorn.getChild("Tail");
 	}
 
 	public static LayerDefinition createBodyLayer() {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();
 
-		PartDefinition Angus = partdefinition.addOrReplaceChild("Angus", CubeListBuilder.create(), PartPose.offset(0.0F, 24.0F, 0.0F));
+		PartDefinition Longhorn = partdefinition.addOrReplaceChild("Longhorn", CubeListBuilder.create(), PartPose.offset(0.0F, 24.0F, 0.0F));
 
-		PartDefinition Body = Angus.addOrReplaceChild("Body", CubeListBuilder.create().texOffs(0, 0).addBox(-2.6F, -3.0F, -1.0F, 7.2F, 6.0F, 9.75F, new CubeDeformation(0.0F)), PartPose.offset(-1.0F, -6.0F, -2.0F));
+		PartDefinition Body = Longhorn.addOrReplaceChild("Body", CubeListBuilder.create().texOffs(0, 0).addBox(-2.6F, -3.0F, -1.0F, 7.2F, 6.0F, 9.75F, new CubeDeformation(0.0F)), PartPose.offset(-1.0F, -6.0F, -2.0F));
 
-		PartDefinition Legs = Angus.addOrReplaceChild("Legs", CubeListBuilder.create().texOffs(16, 29).addBox(-3.6F, -2.1F, -4.1F, 2.9F, 0.5F, 2.2F, new CubeDeformation(0.0F)), PartPose.offset(2.0F, -1.0F, 5.1F));
+		PartDefinition Legs = Longhorn.addOrReplaceChild("Legs", CubeListBuilder.create().texOffs(16, 29).addBox(-3.6F, -2.1F, -4.1F, 2.9F, 0.5F, 2.2F, new CubeDeformation(0.0F)), PartPose.offset(2.0F, -1.0F, 5.1F));
 
 		PartDefinition B_Left = Legs.addOrReplaceChild("B_Left", CubeListBuilder.create().texOffs(8, 27).addBox(-1.0F, -2.0F, -1.0F, 2.0F, 3.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(-4.0F, 0.0F, 0.0F));
 
@@ -79,7 +85,7 @@ public class AngusModelF<T extends Entity> extends HierarchicalModel<T> {
 
 		PartDefinition B_Right = Legs.addOrReplaceChild("B_Right", CubeListBuilder.create().texOffs(24, 21).addBox(-1.0F, -2.0F, -1.0F, 2.0F, 3.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
 
-		PartDefinition Head = Angus.addOrReplaceChild("Head", CubeListBuilder.create().texOffs(0, 16).addBox(-2.0F, -4.1F, 0.0F, 4.0F, 4.1F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -6.5F, -6.0F));
+		PartDefinition Head = Longhorn.addOrReplaceChild("Head", CubeListBuilder.create().texOffs(0, 16).addBox(-2.0F, -4.1F, 0.0F, 4.0F, 4.1F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -6.5F, -6.0F));
 
 		PartDefinition Ears = Head.addOrReplaceChild("Ears", CubeListBuilder.create(), PartPose.offset(2.3F, -2.0F, 1.1F));
 
@@ -92,7 +98,7 @@ public class AngusModelF<T extends Entity> extends HierarchicalModel<T> {
 		PartDefinition R_Ear_r1 = R_Ear.addOrReplaceChild("R_Ear_r1", CubeListBuilder.create().texOffs(26, 26).addBox(-1.0F, -1.2F, -0.6F, 2.0F, 0.4F, 1.6F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, -0.6586F, -0.1925F, 0.4887F));
 
 		PartDefinition Eyes = Head.addOrReplaceChild("Eyes", CubeListBuilder.create().texOffs(4, 4).mirror().addBox(-1.0F, -1.5F, 0.9F, 1.1F, 0.5F, 0.1F, new CubeDeformation(0.0F)).mirror(false)
-				.texOffs(4, 4).addBox(-3.9F, -1.5F, 0.9F, 1.1F, 0.5F, 0.1F, new CubeDeformation(0.0F)), PartPose.offset(1.9F, -1.0F, -1.0F));
+		.texOffs(4, 4).addBox(-3.9F, -1.5F, 0.9F, 1.1F, 0.5F, 0.1F, new CubeDeformation(0.0F)), PartPose.offset(1.9F, -1.0F, -1.0F));
 
 		PartDefinition TopJaw = Head.addOrReplaceChild("TopJaw", CubeListBuilder.create().texOffs(25, 7).addBox(-1.0F, -1.0F, -1.5F, 2.0F, 1.2F, 1.5F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -1.0F, 0.0F));
 
@@ -112,32 +118,44 @@ public class AngusModelF<T extends Entity> extends HierarchicalModel<T> {
 
 		PartDefinition cube_r5 = Tag.addOrReplaceChild("cube_r5", CubeListBuilder.create().texOffs(0, 8).addBox(-1.0F, -2.0F, -1.0F, 2.0F, 1.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(2.3F, -7.35F, -2.95F, 0.1585F, -0.0735F, 0.7796F));
 
-		PartDefinition Tail = Angus.addOrReplaceChild("Tail", CubeListBuilder.create(), PartPose.offset(-0.8F, -5.7F, 7.8F));
+		PartDefinition Horn = Head.addOrReplaceChild("Horn", CubeListBuilder.create(), PartPose.offset(0.0F, 6.5F, 6.0F));
 
-		PartDefinition tail_r1 = Tail.addOrReplaceChild("tail_r1", CubeListBuilder.create().texOffs(4, 5).addBox(0.5F, -2.0F, -1.0F, 0.5F, 3.25F, 0.5F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, 0.3016F, -0.0051F, 0.0038F));
+		PartDefinition Rhorn = Horn.addOrReplaceChild("Rhorn", CubeListBuilder.create(), PartPose.offset(0.0F, 0.0F, 0.0F));
 
-		PartDefinition Bell = Angus.addOrReplaceChild("Bell", CubeListBuilder.create(), PartPose.offset(0.0F, 0.0F, 0.0F));
+		PartDefinition cube_r6 = Rhorn.addOrReplaceChild("cube_r6", CubeListBuilder.create().texOffs(25, 4).addBox(-0.4F, -1.0F, -1.0F, 2.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(5.2F, -10.3F, -3.2F, 0.0F, 0.0F, -0.6545F));
 
-		PartDefinition cube_r6 = Bell.addOrReplaceChild("cube_r6", CubeListBuilder.create().texOffs(0, 6).addBox(-1.0F, -1.0F, -1.0F, 1.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.5F, -5.4F, -3.4F, 0.2967F, 0.0F, 0.0F));
+		PartDefinition cube_r7 = Rhorn.addOrReplaceChild("cube_r7", CubeListBuilder.create().texOffs(24, 1).addBox(-1.0F, -1.0F, -1.0F, 3.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(2.9F, -9.6F, -3.2F, 0.0F, 0.0F, -0.2269F));
 
-		PartDefinition cube_r7 = Bell.addOrReplaceChild("cube_r7", CubeListBuilder.create().texOffs(0, 1).addBox(0.2F, -1.0F, -1.0F, 3.0F, 1.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-1.1F, -5.7F, -3.1F, 0.6684F, -0.115F, -0.242F));
+		PartDefinition Lhorn = Horn.addOrReplaceChild("Lhorn", CubeListBuilder.create(), PartPose.offset(0.0F, 0.0F, 0.0F));
 
-		PartDefinition cube_r8 = Bell.addOrReplaceChild("cube_r8", CubeListBuilder.create().texOffs(0, 3).addBox(-2.0F, -1.0F, -1.0F, 3.0F, 1.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-0.4F, -6.0F, -3.1F, 0.6821F, 0.5134F, 0.2536F));
+		PartDefinition cube_r8 = Lhorn.addOrReplaceChild("cube_r8", CubeListBuilder.create().texOffs(24, 16).addBox(-2.0F, -1.0F, -1.0F, 3.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-2.5F, -9.6F, -3.2F, 0.0F, 0.0F, 0.2269F));
 
-		PartDefinition Neck = Angus.addOrReplaceChild("Neck", CubeListBuilder.create(), PartPose.offset(0.0F, 0.0F, 0.0F));
+		PartDefinition cube_r9 = Lhorn.addOrReplaceChild("cube_r9", CubeListBuilder.create().texOffs(25, 4).addBox(-1.0F, -1.0F, -1.0F, 2.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-5.2F, -10.6F, -3.2F, 0.0F, 0.0F, 0.6545F));
+
+		PartDefinition Bell = Longhorn.addOrReplaceChild("Bell", CubeListBuilder.create(), PartPose.offset(0.0F, 0.0F, 0.0F));
+
+		PartDefinition cube_r10 = Bell.addOrReplaceChild("cube_r10", CubeListBuilder.create().texOffs(0, 6).addBox(-1.0F, -1.0F, -1.0F, 1.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.5F, -5.4F, -3.4F, 0.2967F, 0.0F, 0.0F));
+
+		PartDefinition cube_r11 = Bell.addOrReplaceChild("cube_r11", CubeListBuilder.create().texOffs(0, 1).addBox(0.2F, -1.0F, -1.0F, 3.0F, 1.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-1.1F, -5.7F, -3.1F, 0.6684F, -0.115F, -0.242F));
+
+		PartDefinition cube_r12 = Bell.addOrReplaceChild("cube_r12", CubeListBuilder.create().texOffs(0, 3).addBox(-2.0F, -1.0F, -1.0F, 3.0F, 1.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-0.4F, -6.0F, -3.1F, 0.6821F, 0.5134F, 0.2536F));
+
+		PartDefinition Neck = Longhorn.addOrReplaceChild("Neck", CubeListBuilder.create(), PartPose.offset(0.0F, 0.0F, 0.0F));
 
 		PartDefinition neck_r1 = Neck.addOrReplaceChild("neck_r1", CubeListBuilder.create().texOffs(16, 16).addBox(-1.5F, -3.0F, 0.0F, 3.0F, 3.4F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -5.1F, -3.1F, 0.576F, 0.0F, 0.0F));
 
+		PartDefinition Tail = Longhorn.addOrReplaceChild("Tail", CubeListBuilder.create(), PartPose.offset(-0.8F, -5.7F, 7.8F));
+
+		PartDefinition tail_r1 = Tail.addOrReplaceChild("tail_r1", CubeListBuilder.create().texOffs(4, 5).addBox(0.5F, -2.0F, -1.0F, 0.5F, 3.25F, 0.5F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, 0.3016F, -0.0051F, 0.0038F));
+
 		return LayerDefinition.create(meshdefinition, 32, 32);
 	}
-
 
 	@Override
 	public void setupAnim(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.root().getAllParts().forEach(ModelPart::resetPose);
 		this.applyHeadRotation(netHeadYaw, headPitch, ageInTicks);
 
-		//this.animate(((AngusEntity_F) entity).idleAnimationState, CowAnimations.IDLE_ANIMATION, ageInTicks, 1f);
 		this.animateWalk(CowAnimations.IDLE_ANIMATION, limbSwing, limbSwingAmount, 25f, 2.5f);
 		this.animateWalk(CowAnimations.WALKING_ANIMATION, limbSwing, limbSwingAmount, 25f, 2.5f);
 		this.animateWalk(CowAnimations.EAT_ANIMATION, limbSwing, limbSwingAmount, 25f, 2.5f);
@@ -154,11 +172,11 @@ public class AngusModelF<T extends Entity> extends HierarchicalModel<T> {
 
 	@Override
 	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		Angus.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-    }
+		Longhorn.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	}
 
 	@Override
 	public ModelPart root() {
-		return Angus;
+		return Longhorn;
 	}
 }

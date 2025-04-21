@@ -20,9 +20,19 @@ public class ModCreativeModTabs
                     .displayItems((itemDisplayParameters, output) -> {
                         //order shown in tab
                         output.accept(ModItems.ANGUSFEMALE_SPAWN_EGG.get());
+                        output.accept(ModItems.LONGHORNFEMALE_SPAWN_EGG.get());
+
                         output.accept(ModItems.WYANFEMALE_SPAWN_EGG.get());
+                        output.accept(ModItems.LEGHORNFEMALE_SPAWN_EGG.get());
+
                         output.accept(ModItems.LANDRACEFEMALE_SPAWN_EGG.get());
                         output.accept(ModItems.SPOTTEDFEMALE_SPAWN_EGG.get());
+                        output.accept(ModItems.HAMPSHIREFEMALE_SPAWN_EGG.get());
+                        output.accept(ModItems.DUROCFEMALE_SPAWN_EGG.get());
+                        output.accept(ModItems.BERKSHIREFEMALE_SPAWN_EGG.get());
+
+                        output.accept(ModItems.HAMPSHIREDOWNFEMALE_SPAWN_EGG.get());
+
                         output.accept(ModItems.RAW_BRISKET.get());
                         output.accept(ModItems.COOKED_BRISKET.get());
                         output.accept(ModItems.RAW_CHUCK.get());

@@ -6,7 +6,6 @@ package net.bewitchingbiohazard.ranchinexpansionmod.entity.client.pig;// Made wi
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.bewitchingbiohazard.ranchinexpansionmod.entity.animations.PigAnimations;
-import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.HierarchicalModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
@@ -16,7 +15,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 
-public class SpottedModelF<T extends Entity> extends HierarchicalModel<T> {
+public class HampshireModelF<T extends Entity> extends HierarchicalModel<T> {
 	// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
 	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("modid", "pigmodel_converted"), "main");
 	private final ModelPart Pig;
@@ -37,7 +36,7 @@ public class SpottedModelF<T extends Entity> extends HierarchicalModel<T> {
 	private final ModelPart Tail;
 	private final ModelPart Neck;
 
-	public SpottedModelF(ModelPart root) {
+	public HampshireModelF(ModelPart root) {
 		this.Pig = root.getChild("Pig");
 		this.Head = this.Pig.getChild("Head");
 		this.Ears = this.Head.getChild("Ears");
@@ -78,14 +77,14 @@ public class SpottedModelF<T extends Entity> extends HierarchicalModel<T> {
 		PartDefinition Snout = Head.addOrReplaceChild("Snout", CubeListBuilder.create().texOffs(8, 20).addBox(-2.0F, -0.75F, -0.25F, 1.5F, 0.75F, 1.0F, new CubeDeformation(0.0F))
 		.texOffs(25, 20).addBox(-1.8F, 0.0F, 0.0F, 1.1F, 0.3F, 0.75F, new CubeDeformation(0.0F)), PartPose.offset(1.4F, -3.6F, -6.15F));
 
-		PartDefinition Eyes = Head.addOrReplaceChild("Eyes", CubeListBuilder.create().texOffs(4, 2).addBox(-3.75F, -0.3F, 0.0F, 0.8F, 0.4F, 0.25F, new CubeDeformation(0.0F))
-		.texOffs(1, 2).addBox(-2.1F, -0.3F, 0.0F, 0.8F, 0.4F, 0.25F, new CubeDeformation(0.0F)), PartPose.offset(2.65F, -4.5F, -5.55F));
+		PartDefinition Eyes = Head.addOrReplaceChild("Eyes", CubeListBuilder.create().texOffs(1, 2).addBox(-0.35F, -0.4F, 0.0F, 0.8F, 0.4F, 0.25F, new CubeDeformation(0.0F))
+		.texOffs(4, 2).addBox(-2.0F, -0.4F, 0.0F, 0.8F, 0.4F, 0.25F, new CubeDeformation(0.0F)), PartPose.offset(0.9F, -4.4F, -5.55F));
 
 		PartDefinition Body = Pig.addOrReplaceChild("Body", CubeListBuilder.create(), PartPose.offset(-8.0F, -0.75F, 4.75F));
 
 		PartDefinition Body2 = Body.addOrReplaceChild("Body2", CubeListBuilder.create().texOffs(0, 0).addBox(-2.0F, -3.75F, 0.0F, 4.25F, 3.75F, 7.25F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -0.5F, 0.0F));
 
-		PartDefinition Belly = Body.addOrReplaceChild("Belly", CubeListBuilder.create().texOffs(12, 13).addBox(-1.75F, -0.75F, 2.0F, 3.75F, 0.75F, 3.25F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
+		PartDefinition Belly = Body.addOrReplaceChild("Belly", CubeListBuilder.create().texOffs(12, 13).addBox(-1.75F, -0.25F, 2.0F, 3.75F, 0.75F, 3.25F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -0.5F, 0.0F));
 
 		PartDefinition Legs = Pig.addOrReplaceChild("Legs", CubeListBuilder.create(), PartPose.offset(-8.25F, 0.0F, 10.0F));
 
@@ -106,13 +105,14 @@ public class SpottedModelF<T extends Entity> extends HierarchicalModel<T> {
 		return LayerDefinition.create(meshdefinition, 32, 32);
 	}
 
+
 	@Override
 	public void setupAnim(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.root().getAllParts().forEach(ModelPart::resetPose);
 		this.applyHeadRotation(netHeadYaw, headPitch, ageInTicks);
 
-		this.animateWalk(PigAnimations.IDLE_ANIMATION, limbSwing, limbSwingAmount, 5f, 2f);
-		this.animateWalk(PigAnimations.WALKING_ANIMATION, limbSwing, limbSwingAmount, 5f, 2f);
+		this.animateWalk(PigAnimations.IDLE_ANIMATION, limbSwing, limbSwingAmount, 20f, 2f);
+		this.animateWalk(PigAnimations.WALKING_ANIMATION, limbSwing, limbSwingAmount, 10f, 2f);
 	}
 
 	private void applyHeadRotation(float pNetHeadYaw, float pHeadPitch, float pAgeInTicks)

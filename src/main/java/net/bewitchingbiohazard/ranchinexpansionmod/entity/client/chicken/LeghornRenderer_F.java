@@ -2,6 +2,7 @@ package net.bewitchingbiohazard.ranchinexpansionmod.entity.client.chicken;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.bewitchingbiohazard.ranchinexpansionmod.RanchinExpansionMod;
+import net.bewitchingbiohazard.ranchinexpansionmod.entity.chicken.LeghornEntity_F;
 import net.bewitchingbiohazard.ranchinexpansionmod.entity.chicken.WyandotteEntity_F;
 import net.bewitchingbiohazard.ranchinexpansionmod.entity.client.ModModelLayers;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -13,13 +14,13 @@ import org.jetbrains.annotations.NotNull;
 import java.util.concurrent.atomic.AtomicReference;
 
 
-public class WyandotteRenderer_F extends MobRenderer<WyandotteEntity_F, WyandotteModelF<WyandotteEntity_F>> {
-    public WyandotteRenderer_F(EntityRendererProvider.Context pContext) {
-        super(pContext, new WyandotteModelF<>(pContext.bakeLayer(ModModelLayers.WYANDOTTE_LAYER)), .5f);
+public class LeghornRenderer_F extends MobRenderer<LeghornEntity_F, LeghornModelF<LeghornEntity_F>> {
+    public LeghornRenderer_F(EntityRendererProvider.Context pContext) {
+        super(pContext, new LeghornModelF<>(pContext.bakeLayer(ModModelLayers.LEGHORN_LAYER)), .5f);
     }
 
     @Override
-    public void render(WyandotteEntity_F pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack,
+    public void render(LeghornEntity_F pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack,
                        MultiBufferSource pBuffer, int pPackedLight) {
         pMatrixStack.scale(2.25f, 2.25f, 2.25f);
         if (pEntity.isBaby()) {
@@ -30,9 +31,9 @@ public class WyandotteRenderer_F extends MobRenderer<WyandotteEntity_F, Wyandott
     }
 
     @Override
-    public @NotNull ResourceLocation getTextureLocation(WyandotteEntity_F wyandotteEntityF) {
+    public @NotNull ResourceLocation getTextureLocation(LeghornEntity_F leghornEntityF) {
         AtomicReference<ResourceLocation> resourceLocation = new AtomicReference<>(ResourceLocation.fromNamespaceAndPath(RanchinExpansionMod.MOD_ID,
-                "textures/entity/wyandotte.png"));
+                "textures/entity/leghorn.png"));
         return resourceLocation.get();
     }
 }

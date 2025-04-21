@@ -1,9 +1,11 @@
 package net.bewitchingbiohazard.ranchinexpansionmod;
 
+import net.bewitchingbiohazard.ranchinexpansionmod.entity.client.chicken.LeghornRenderer_F;
 import net.bewitchingbiohazard.ranchinexpansionmod.entity.client.cow.AngusRenderer_F;
-import net.bewitchingbiohazard.ranchinexpansionmod.entity.client.pig.LandraceRenderer_F;
+import net.bewitchingbiohazard.ranchinexpansionmod.entity.client.cow.LonghornRenderer_F;
+import net.bewitchingbiohazard.ranchinexpansionmod.entity.client.pig.*;
 import net.bewitchingbiohazard.ranchinexpansionmod.entity.client.chicken.WyandotteRenderer_F;
-import net.bewitchingbiohazard.ranchinexpansionmod.entity.client.pig.SpottedRenderer_F;
+import net.bewitchingbiohazard.ranchinexpansionmod.entity.client.sheep.HampshireDownRenderer_F;
 import net.bewitchingbiohazard.ranchinexpansionmod.item.ModCreativeModTabs;
 import net.bewitchingbiohazard.ranchinexpansionmod.item.ModItems;
 import net.bewitchingbiohazard.ranchinexpansionmod.loot.ModLootModifiers;
@@ -74,9 +76,19 @@ public class RanchinExpansionMod
         public static void onClientSetup(FMLClientSetupEvent event)
         {
             EntityRenderers.register(ANGUS_F.get(), AngusRenderer_F::new);
+            EntityRenderers.register(LONGHORN_F.get(), LonghornRenderer_F::new);
+
             EntityRenderers.register(WYANDOTTE_F.get(), WyandotteRenderer_F ::new);
+            EntityRenderers.register(LEGHORN_F.get(), LeghornRenderer_F::new);
+
             EntityRenderers.register(LANDRACE_F.get(), LandraceRenderer_F :: new);
             EntityRenderers.register(SPOTTED_F.get(), SpottedRenderer_F:: new);
+            EntityRenderers.register(HAMPSHIRE_F.get(), HampshireRenderer_F:: new);
+            EntityRenderers.register(DUROC_F.get(), DurocRenderer_F:: new);
+            EntityRenderers.register(BERKSHIRE_F.get(), BerkshireRenderer_F:: new);
+
+            EntityRenderers.register(HAMPSHIREDOWN_F.get(), HampshireDownRenderer_F:: new);
+
         }
     }
 }

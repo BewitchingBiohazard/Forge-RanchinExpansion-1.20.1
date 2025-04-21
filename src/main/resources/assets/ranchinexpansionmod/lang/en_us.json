@@ -1,8 +1,16 @@
 {
-  "item.ranchinexpansionmod.angusfemale_spawn_egg" : "Angus Female Spawn Egg",
-  "item.ranchinexpansionmod.wyanfemale_spawn_egg" : "Wyandotte Female Spawn Egg",
-  "item.ranchinexpansionmod.landracefemale_spawn_egg" : "Landrace Female Spawn Egg",
-  "item.ranchinexpansionmod.spottedfemale_spawn_egg" : "Spotted Pig Female Spawn Egg",
+  "item.ranchinexpansionmod.angusfemale_spawn_egg" : "Angus Cow Spawn Egg",
+  "item.ranchinexpansionmod.longhornfemale_spawn_egg" : "Longhorn Cow Spawn Egg",
+
+  "item.ranchinexpansionmod.wyanfemale_spawn_egg" : "Wyandotte Chicken Spawn Egg",
+  "item.ranchinexpansionmod.leghornfemale_spawn_egg" : "Leghorn Chicken Spawn Egg",
+
+  "item.ranchinexpansionmod.landracefemale_spawn_egg" : "Landrace Pig Spawn Egg",
+  "item.ranchinexpansionmod.spottedfemale_spawn_egg" : "Spotted Pig Spawn Egg",
+  "item.ranchinexpansionmod.hampshirefemale_spawn_egg" : "Hampshire Pig Spawn Egg",
+  "item.ranchinexpansionmod.durocfemale_spawn_egg" : "Duroc Pig Spawn Egg",
+  "item.ranchinexpansionmod.berkshirefemale_spawn_egg" : "Berkshire Pig Spawn Egg",
+  "item.ranchinexpansionmod.hampshiredownfemale_spawn_egg" : "Hampshire Down Sheep Spawn Egg",
 
   "item.ranchinexpansionmod.raw_brisket" : "Raw Brisket",
   "item.ranchinexpansionmod.raw_chuck" : "Raw Chuck",

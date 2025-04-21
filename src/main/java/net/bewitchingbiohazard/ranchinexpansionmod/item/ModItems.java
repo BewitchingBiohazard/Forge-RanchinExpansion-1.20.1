@@ -18,17 +18,35 @@ public class ModItems {
     public static final RegistryObject<Item> ANGUSFEMALE_SPAWN_EGG = ITEMS.register("angusfemale_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.ANGUS_F, 0x7e9680, 0xc5d1c5,
                     new Item.Properties()));
+    public static final RegistryObject<Item> LONGHORNFEMALE_SPAWN_EGG = ITEMS.register("longhornfemale_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.LONGHORN_F, 0x4f9480, 0xc5f1c4,
+                    new Item.Properties()));
 
     public static final RegistryObject<Item> WYANFEMALE_SPAWN_EGG = ITEMS.register("wyanfemale_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.WYANDOTTE_F, 0x7e9680, 0xc5d1c5,
+                    new Item.Properties()));
+    public static final RegistryObject<Item> LEGHORNFEMALE_SPAWN_EGG = ITEMS.register("leghornfemale_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.LEGHORN_F, 0x0f0000, 0xc0f0c0,
                     new Item.Properties()));
 
     public static final RegistryObject<Item> LANDRACEFEMALE_SPAWN_EGG = ITEMS.register("landracefemale_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.LANDRACE_F, 0x7e9680, 0xc5d1c5,
                     new Item.Properties()));
-
     public static final RegistryObject<Item> SPOTTEDFEMALE_SPAWN_EGG = ITEMS.register("spottedfemale_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.SPOTTED_F, 0x7e9880, 0xc5e1c5,
+                    new Item.Properties()));
+    public static final RegistryObject<Item> HAMPSHIREFEMALE_SPAWN_EGG = ITEMS.register("hampshirefemale_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.HAMPSHIRE_F, 0x5e9880, 0xc6e1c5,
+                    new Item.Properties()));
+    public static final RegistryObject<Item> DUROCFEMALE_SPAWN_EGG = ITEMS.register("durocfemale_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.DUROC_F, 0x5e380, 0xc3e1c5, new Item.Properties()));
+
+    public static final RegistryObject<Item> BERKSHIREFEMALE_SPAWN_EGG = ITEMS.register("berkshirefemale_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.BERKSHIRE_F, 0x5e350, 0xc1e1c1,
+                    new Item.Properties()));
+
+    public static final RegistryObject<Item> HAMPSHIREDOWNFEMALE_SPAWN_EGG = ITEMS.register("hampshiredownfemale_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.HAMPSHIREDOWN_F, 0x8e350, 0xc8e8c8,
                     new Item.Properties()));
 
 
